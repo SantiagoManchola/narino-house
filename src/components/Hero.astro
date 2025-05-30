@@ -1,0 +1,45 @@
+---
+import SerieLogo from '../assets/images/icon-cp.svg';
+import HouseText from '../assets/images/house.svg';
+import FlagColombia from '../assets/images/flag.svg';
+import OfText from '../assets/images/of.svg';
+import NarinoText from '../assets/images/narino.svg';
+---
+
+<section class="relative text-white py-12 px-4 md:px-12 lg:px-20 bg-cover bg-center min-h-[80vh] flex flex-col justify-end" style="background-image: url('/src/assets/images/bg-narino.png')">
+
+  <div class="absolute bottom-0 left-0 w-full h-[30%] pointer-events-none bg-gradient-to-t from-[#181818] to-transparent z-0"></div>
+
+  <div class="relative z-10 mb-12">
+    <div class="flex items-center gap-2">
+      <SerieLogo class="w-4" />
+      <span class="text-sm uppercase font-light tracking-wide">Serie</span>
+    </div>
+
+    <div class="flex items-center gap-2 flex-wrap h-6 md:h-8">
+      <HouseText/>
+      <FlagColombia/>
+      <OfText class="transform translate-y-[5px]"/>
+      <NarinoText/>
+    </div>
+  </div>
+
+  <div class="relative z-10 flex gap-4 flex-wrap items-center">
+    <button class="flex items-center gap-2 bg-white text-black font-semibold px-6 py-2 rounded hover:bg-gray-200 transition cursor-pointer">
+      <i class="fas fa-play"></i>
+      Reproducir
+    </button>
+
+    <button class="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer">
+      <i class="fas fa-plus"></i>
+    </button>
+
+    <button class="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer">
+      <i class="fas fa-thumbs-up"></i>
+    </button>
+
+    <button class="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition ml-auto md:ml-0 cursor-pointer">
+      <i class="fas fa-volume-up"></i>
+    </button>
+  </div>
+</section>
