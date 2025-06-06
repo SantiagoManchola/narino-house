@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
-import HeroPlayer from './HeroPlayer';
-import Episodies from './Episodies';
+import { useState, useRef, useEffect } from "react";
+import HeroPlayer from "./HeroPlayer";
+import Episodies from "./Episodies";
 
 export default function SerieWrapper() {
-  const [selectedEpisode, setSelectedEpisode] = useState(1);
+  const [selectedEpisode, setSelectedEpisode] = useState("T");
   const heroRef = useRef(null);
 
   useEffect(() => {
     if (heroRef.current) {
-      heroRef.current.scrollIntoView({ behavior: 'smooth' });
+      heroRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [selectedEpisode]);
 
@@ -18,33 +18,43 @@ export default function SerieWrapper() {
         <HeroPlayer episodeId={selectedEpisode} />
       </div>
 
-        <section class="text-white px-4 py-6 md:px-12 lg:px-20">
-            <div class="md:flex md:gap-16">
-                <div class="md:w-2/3">
-                    <div class="flex items-center flex-wrap gap-4 text-sm text-white/80 mb-2">
-                        <span>2024</span>
-                        <span>1 temporada</span>
-                        <span class="border border-white px-1.5 py-0.5 text-xs rounded">HD</span>
-                    </div>
-
-                    <div class="flex items-center flex-wrap gap-4 text-sm text-white/80 mb-6">
-                        <span class="border border-white px-1.5 py-0.5 text-xs rounded">16+</span>
-                        <span>violencia, sexo, lenguaje inapropiado</span>
-                    </div>
-
-                    <p class="text-lg leading-relaxed text-white">
-                        En el interior de la Casa de Nariño, Verónica Alcocer inicia una fuerte lucha por el poder. Sus armas: chantaje y seducción.
-                    </p>
-                </div>
-
-                <div class="mt-6 md:mt-0 md:w-1/3 text-sm text-white/80 space-y-2">
-                    <p><span class="text-white/60">Elenco:</span> Verónica Alcocer, Gustavo Petro, Laura Sarabia, <em>más</em></p>
-                    <p><span class="text-white/60">Géneros:</span> Series sobre política, Series dramáticas, Series de Colombia</p>
-                    <p><span class="text-white/60">Este título es:</span> Complejo, Sombrío</p>
-                </div>
+      <section className="text-white px-4 py-6 md:px-12 lg:px-20">
+        <div className="flex flex-col md:flex-row md:gap-16">
+          <div className="md:w-2/3 space-y-4">
+            <div className="flex items-center flex-wrap gap-2 text-md mb-1.5">
+              <span className="text-[#BCBCBC]">2025 1 temporada</span>
+              <span className="border border-white px-1.5 py-[1px] text-xs rounded text-white">
+                HD
+              </span>
             </div>
-        </section>
 
+            <div className="flex items-center flex-wrap gap-2 text-sm text-white mb-6">
+              <span className="border border-white px-1.5 py-[1px]">16+</span>
+              <span>Corrupción, coimas, desastre nacional</span>
+            </div>
+
+            <p>
+              En la Casa de Nariño, muchos le han vendido el alma al diablo. El
+              pecado original: las campañas electorales. La fórmula: alianzas y
+              plata. El triunfo final: la impunidad y ríos de dinero desviados,
+              esta vez, a través de la Unidad del Riesgo.
+            </p>
+          </div>
+
+          <div className="mt-6 md:mt-0 md:w-1/3 text-sm space-y-4">
+            <p>
+              <span className="text-[#777777]">Elenco:</span> Gustavo Petro,
+              Olmedo López, Sneyder Pinilla, Carlos Trujillo, Andrés Calle,
+              Elías Chagüi, Emilio Tapia, Laura Sarabia, Mauricio Lizcano,
+              Julián Bedoya, Ciro Ramírez.
+            </p>
+            <p>
+              <span className="text-[#777777]">Géneros:</span> Investigación
+              periodística
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Episodies
         selectedEpisode={selectedEpisode}

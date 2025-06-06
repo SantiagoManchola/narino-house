@@ -1,0 +1,93 @@
+---
+const cast = [
+  {
+    title: "Gustavo Petro",
+    thumbnail: "/images/cast/img1.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Olmedo López",
+    thumbnail: "/images/cast/img2.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Sneyder Pinilla",
+    thumbnail: "/images/cast/img3.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Carlos Andrés Trujillo",
+    thumbnail: "/images/cast/img4.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Julio Elías Chagüi",
+    thumbnail: "/images/cast/img5.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Julián Bedoya",
+    thumbnail: "/images/cast/img6.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "Andrés Calle Aguas",
+    thumbnail: "/images/cast/img7.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+  {
+    title: "UNGRD",
+    thumbnail: "/images/cast/img8.png",
+    description: "Conoce más en: Capítulo 1",
+    url: "#",
+  },
+];
+---
+
+<section class="px-4 md:px-12 lg:px-20 pt-10 text-white">
+  <h2 class="text-2xl font-semibold mb-6">Cast</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {
+      cast.map((item) => (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#2F2F2F] rounded-md overflow-hidden transition-transform hover:scale-[1.02]"
+        >
+          <!-- Imagen en proporción 1:1 -->
+          <div class="relative aspect-[1/1]">
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10 text-white opacity-90"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="p-4 flex flex-col gap-3 text-white text-sm">
+            <span>{item.title}</span>
+            <p class="text-[#D2D2D2] max-w-[80%]">{item.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

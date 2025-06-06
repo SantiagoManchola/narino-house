@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('/src/assets/fonts/SweetSansPro-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.font-sweet {
+  font-family: 'Sweet Sans Pro', sans-serif;
+}

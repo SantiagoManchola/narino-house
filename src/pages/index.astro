@@ -1,12 +1,14 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
-import SerieWrapper from '../components/SerieWrapper.jsx';
-import Recommended from '../components/Recommended.astro';
-import About from '../components/About.astro';
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import SerieWrapper from "../components/SerieWrapper.jsx";
+import Recommended from "../components/Recommended.astro";
+import About from "../components/About.astro";
+import Cast from "../components/Cast.astro";
 ---
 
 <DefaultLayout title="House of Nariño">
   <SerieWrapper client:load />
+  <Cast />
   <Recommended />
   <About />
 </DefaultLayout>

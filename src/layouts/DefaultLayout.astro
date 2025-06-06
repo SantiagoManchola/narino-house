@@ -1,27 +1,79 @@
 ---
 const { title } = Astro.props;
-import '../styles/global.css';
+import "../styles/global.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>{title ? `${title}` : 'House Of Nariño'}</title>
+    <title>{title ? `${title}` : "House Of Nariño"}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body class="bg-[#060606]">
     <div class="fixed inset-0 z-0 flex justify-between">
-      <div class="w-[15vw] bg-repeat-y bg-left bg-cover" style="background-image: url('/images/left-side-face.png')"></div>
-      <div class="w-[15vw] bg-repeat-y bg-right bg-cover" style="background-image: url('/images/right-side-face.png')"></div>
+      <div class="relative w-[15vw] h-screen overflow-hidden hidden md:block">
+        <img
+          id="left-image"
+          src="/images/faces/left-side-face1.png"
+          class="absolute w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+        />
+      </div>
+      <div class="relative w-[15vw] h-screen overflow-hidden hidden md:block">
+        <img
+          id="right-image"
+          src="/images/faces/right-side-face1.png"
+          class="absolute w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+        />
+      </div>
     </div>
 
     <header class="fixed top-8 left-8 z-20">
       <img src="/images/logo-cp.png" alt="Cuestión Pública" class="w-33" />
     </header>
 
-    <main class="relative z-10 max-w-[70vw] mx-auto my-8 bg-[#181818] min-h-screen rounded-lg overflow-hidden">
+    <main
+      class="relative z-10 min-h-screen bg-[#181818] overflow-hidden
+      rounded-none w-full mx-0
+      md:rounded-lg md:max-w-[70vw] md:mx-auto md:px-0 md:my-8"
+    >
       <slot />
     </main>
   </body>
+
+  <script type="module">
+    const leftImages = [
+      "/images/faces/left-side-face1.png",
+      "/images/faces/left-side-face2.png",
+      "/images/faces/left-side-face3.png",
+    ];
+    const rightImages = [
+      "/images/faces/right-side-face1.png",
+      "/images/faces/right-side-face2.png",
+      "/images/faces/right-side-face3.png",
+    ];
+
+    const leftImg = document.getElementById("left-image");
+    const rightImg = document.getElementById("right-image");
+    let index = 1;
+
+    setInterval(() => {
+      leftImg.classList.remove("opacity-100");
+      leftImg.classList.add("opacity-0");
+      rightImg.classList.remove("opacity-100");
+      rightImg.classList.add("opacity-0");
+
+      setTimeout(() => {
+        leftImg.src = leftImages[index];
+        rightImg.src = rightImages[index];
+
+        leftImg.classList.remove("opacity-0");
+        leftImg.classList.add("opacity-100");
+        rightImg.classList.remove("opacity-0");
+        rightImg.classList.add("opacity-100");
+
+        index = (index + 1) % leftImages.length;
+      }, 1000);
+    }, 4500);
+  </script>
 </html>

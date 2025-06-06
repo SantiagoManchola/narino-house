@@ -1,39 +1,36 @@
 ---
 const recommended = [
   {
-    id: 1,
-    title: "Juegos de Dios: Cuestión de Fe Pública",
+    title: "El juicio de la historia",
     seasons: "1 temporada",
     thumbnail: "/images/recommended/img1.png",
-    year: "2019",
+    year: "2025",
     rating: "16+",
     quality: "HD",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Por primera vez en la historia de Colombia, un expresidente enfrenta un juicio penal: Álvaro Uribe Vélez es acusado por presunto soborno simple, soborno en actuación penal y fraude procesal.",
     url: "#",
   },
   {
-    id: 2,
-    title: "Corrupción y Castigo",
+    title: "NarcoFiles",
     seasons: "1 temporada",
     thumbnail: "/images/recommended/img2.png",
-    year: "2019",
+    year: "2024",
     rating: "16+",
     quality: "HD",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Documentos filtrados de la Fiscalía muestran que las navieras europeas son las favoritas de la mafia colombiana para envíos de cocaína y cuáles son sus puertos de llegada en el viejo continente.",
     url: "#",
   },
   {
-    id: 3,
-    title: "Sabemos lo que hicieron",
-    seasons: "2 temporadas",
+    title: "Juego de votos",
+    seasons: "1 temporada",
     thumbnail: "/images/recommended/img3.png",
-    year: "2019",
+    year: "2022",
     rating: "16+",
     quality: "HD",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Por generaciones, familias políticas han controlado las regiones del país. A su disposición se enfilan tropas de políticos, empresarios, contratistas y hasta paramilitares y narcotraficantes.",
     url: "#",
   },
 ];
@@ -43,52 +40,58 @@ const recommended = [
   <h2 class="text-2xl font-semibold mb-6">Más títulos similares a este</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {recommended.map((item) => (
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-[#2F2F2F] rounded-md overflow-hidden transition-transform hover:scale-[1.02]"
-      >
-        <div class="relative">
-          <img
-            src={item.thumbnail}
-            alt={item.title}
-            class="w-full h-[180px] object-cover"
-          />
-          <div class="absolute top-2 left-2">
-            <img src="/images/icon-cp.svg" class="w-5" alt="Logo" />
-          </div>
-          <div class="absolute top-2 right-2 text-white text-sm bg-black/60 px-2 py-0.5 rounded">
-            {item.seasons}
-          </div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10 text-white opacity-90"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="p-4 flex flex-col gap-3">
-          <div class="flex items-center gap-2 text-sm text-white/90">
-            <span class="px-1.5 py-0.5 border border-white rounded text-xs">{item.rating}</span>
-            <span class="px-1 py-0.5 border border-white text-xs rounded">{item.quality}</span>
-            <span class="text-white/80 text-xs">{item.year}</span>
-            <div class="ml-auto">
-              <div class="border-2 border-white rounded-full p-2 w-8 h-8 flex items-center justify-center text-white text-base">
-                    <i class="fas fa-plus"></i>
-                </div>
-
+    {
+      recommended.map((item) => (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#2F2F2F] rounded-md overflow-hidden transition-transform hover:scale-[1.02]"
+        >
+          <div class="relative">
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              class="w-full h-[180px] object-cover"
+            />
+            <div class="absolute top-2 left-2">
+              <img src="/images/icon-cp.svg" class="w-5" alt="Logo" />
+            </div>
+            <div class="absolute top-2 right-2 text-white text-sm bg-black/60 px-2 py-0.5 rounded">
+              {item.seasons}
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10 text-white opacity-90"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </div>
           </div>
-          <p class="text-sm text-white/90">{item.description}</p>
-        </div>
-      </a>
-    ))}
+
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center gap-2 text-[#BCBCBC]">
+              <span class="px-1.5 py-[1px] leading-none border border-white">
+                {item.rating}
+              </span>
+              <span class="px-1.5 py-[1px] leading-none border border-white text-xs rounded">
+                {item.quality}
+              </span>
+              <span>{item.year}</span>
+              <div class="ml-auto">
+                <div class="border-2 border-white rounded-full p-2 w-8 h-8 flex items-center justify-center text-white text-base">
+                  <i class="fas fa-plus" />
+                </div>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold">{item.title}</h3>
+            <p class="text-sm text-white/90">{item.description}</p>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </section>
