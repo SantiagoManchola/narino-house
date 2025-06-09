@@ -9,7 +9,7 @@ export default function HeroPlayer({ episodeId }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const episodes = {
-    T: "FW_3rVoBzPA",
+    T: "J76Tqc3uGL0",
     1: "FW_3rVoBzPA",
     2: "75xlB8aw68o",
     3: "Re61e2rdBrQ",
