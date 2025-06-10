@@ -1,4 +1,3 @@
-import { useState } from "react";
 import serieLogoUrl from "../assets/images/icon-cp.svg?url";
 import houseTextUrl from "../assets/images/house.svg?url";
 import flagColombiaUrl from "../assets/images/flag.svg?url";
@@ -27,7 +26,7 @@ export default function HeroPlayer({ episodeId, isPlaying, onPlayClick }) {
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
-            <source src="/videos/banner-video.webm" type="video/webm" />
+            <source src="/videos/banner-video.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
           </video>
 
