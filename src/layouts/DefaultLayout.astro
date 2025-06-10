@@ -1,15 +1,55 @@
 ---
-const { title } = Astro.props;
 import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
+    <title>House Of Nariño</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <meta
+      name="description"
+      content="Descubre los secretos del poder en Colombia. Corrupción, coimas y escándalos en esta serie documental."
+    />
+
     <meta charset="UTF-8" />
-    <title>{title ? `${title}` : "House Of Nariño"}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="keywords"
+      content="corrupción, política colombiana, casa de Nariño, documental político"
+    />
+
+    <meta name="author" content="SolucionSoft" />
+
+    <link rel="canonical" href="https://narino-house.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="House of Nariño" />
+    <meta
+      property="og:description"
+      content="Serie documental sobre la corrupción en el poder colombiano."
+    />
+    <meta
+      property="og:image"
+      content="https://narino-house.vercel.app/imagen-og.jpg"
+    />
+    <meta property="og:url" content="https://narino-house.vercel.app/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="House of Nariño" />
+    <meta
+      name="twitter:description"
+      content="Serie documental sobre la corrupción en Colombia."
+    />
+    <meta
+      name="twitter:image"
+      content="https://narino-house.vercel.app/imagen-og.jpg"
+    />
   </head>
+
   <body class="bg-[#060606]">
     <div class="fixed inset-0 z-0 flex justify-between">
       <div class="relative w-[15vw] h-screen overflow-hidden hidden md:block">

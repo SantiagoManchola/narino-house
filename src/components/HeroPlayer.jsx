@@ -5,9 +5,7 @@ import flagColombiaUrl from "../assets/images/flag.svg?url";
 import ofTextUrl from "../assets/images/of.svg?url";
 import narinoTextUrl from "../assets/images/narino.svg?url";
 
-export default function HeroPlayer({ episodeId }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
+export default function HeroPlayer({ episodeId, isPlaying, setIsPlaying }) {
   const episodes = {
     T: "J76Tqc3uGL0",
     1: "FW_3rVoBzPA",
@@ -19,7 +17,7 @@ export default function HeroPlayer({ episodeId }) {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0`;
 
   return (
-    <section className="relative text-white py-12 px-4 md:px-12 lg:px-20 min-h-[80vh] flex flex-col justify-end overflow-hidden">
+    <section className="relative text-white py-12 px-6 md:px-12 lg:px-20 min-h-[80vh] flex flex-col justify-end overflow-hidden">
       {!isPlaying && (
         <>
           <video
@@ -63,8 +61,7 @@ export default function HeroPlayer({ episodeId }) {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-0 z-10">
-            {/* Botones principales */}
+          <div className="flex flex-row items-end justify-between gap-6 md:gap-0 z-10">
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4">
               <button
                 onClick={() => setIsPlaying(true)}
@@ -76,13 +73,13 @@ export default function HeroPlayer({ episodeId }) {
 
               <div className="flex gap-2">
                 <button className="w-10 h-10 sm:w-[42px] sm:h-[42px] flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer">
-                  <i className="fas fa-bell text-base sm:text-xl" />
+                  <img src="images/icons/bell.svg" alt="Bell icon" />
                 </button>
                 <button className="w-10 h-10 sm:w-[42px] sm:h-[42px] flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer">
-                  <i className="fas fa-thumbs-up text-base sm:text-xl" />
+                  <img src="images/icons/like.svg" alt="Bell icon" />
                 </button>
                 <button className="w-10 h-10 sm:w-[42px] sm:h-[42px] flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer ml-auto sm:ml-0">
-                  <i className="fas fa-share text-base sm:text-xl" />
+                  <img src="images/icons/share.svg" alt="Bell icon" />
                 </button>
               </div>
             </div>

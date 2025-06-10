@@ -34,14 +34,14 @@ const episodes = [
 
 export default function Episodies({ onEpisodeSelect, selectedEpisode }) {
   return (
-    <section className="px-2 sm:px-4 md:px-12 lg:px-20 py-6 text-white">
+    <section className="px-6 sm:px-4 md:px-12 lg:px-20 py-6 text-white">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <h2 className="text-xl sm:text-2xl">Episodios</h2>
 
         <div className="relative inline-block w-fit">
           <select
             disabled
-            className="appearance-none bg-[#242424] border border-white text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base leading-tight pr-10"
+            className="appearance-none bg-[#242424] border border-white text-white font-semibold px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base leading-tight pr-10"
           >
             <option className="text-black">Temporada 1</option>
           </select>
@@ -87,16 +87,24 @@ export default function Episodies({ onEpisodeSelect, selectedEpisode }) {
                 <img
                   src={ep.thumbnail}
                   alt={ep.title}
-                  className="w-full object-cover rounded p-7"
+                  className="w-full object-cover rounded p-20 md:p-7"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 sm:h-10 sm:w-10 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                    className="w-[46px] h-[46px]"
+                    viewBox="0 0 46 46"
                   >
-                    <path d="M8 5v14l11-7z" />
+                    <circle
+                      cx="23"
+                      cy="23"
+                      r="22"
+                      fill="#181818"
+                      fillOpacity="0.5"
+                      stroke="white"
+                      strokeWidth="1"
+                    />
+                    <path d="M16 13v20l16-10z" fill="white" />
                   </svg>
                 </div>
               </div>

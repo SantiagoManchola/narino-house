@@ -4,21 +4,29 @@ import Episodies from "./Episodies";
 
 export default function SerieWrapper() {
   const [selectedEpisode, setSelectedEpisode] = useState("T");
+  const [isPlaying, setIsPlaying] = useState(false);
   const heroRef = useRef(null);
 
-  useEffect(() => {
+  const handleEpisodeSelect = (episodeId) => {
+    setSelectedEpisode(episodeId);
+    setIsPlaying(true);
+
     if (heroRef.current) {
       heroRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [selectedEpisode]);
+  };
 
   return (
     <>
       <div ref={heroRef}>
-        <HeroPlayer episodeId={selectedEpisode} />
+        <HeroPlayer
+          episodeId={selectedEpisode}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
       </div>
 
-      <section className="text-white px-4 py-6 md:px-12 lg:px-20">
+      <section className="text-white px-6 py-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row md:gap-16">
           <div className="md:w-2/3 space-y-4">
             <div className="flex items-center flex-wrap gap-2 text-md mb-1.5">
@@ -58,7 +66,7 @@ export default function SerieWrapper() {
 
       <Episodies
         selectedEpisode={selectedEpisode}
-        onEpisodeSelect={setSelectedEpisode}
+        onEpisodeSelect={handleEpisodeSelect}
       />
     </>
   );
