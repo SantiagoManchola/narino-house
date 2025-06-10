@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 const episodes = [
   {
     id: "T",
@@ -32,9 +34,15 @@ const episodes = [
   },
 ];
 
-export default function Episodies({ onEpisodeSelect, selectedEpisode }) {
+const Episodies = forwardRef(function Episodies(
+  { onEpisodeSelect, selectedEpisode },
+  ref
+) {
   return (
-    <section className="px-6 sm:px-4 md:px-12 lg:px-20 py-6 text-white">
+    <section
+      ref={ref}
+      className="px-6 sm:px-4 md:px-12 lg:px-20 py-6 text-white"
+    >
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <h2 className="text-xl sm:text-2xl">Episodios</h2>
 
@@ -128,4 +136,6 @@ export default function Episodies({ onEpisodeSelect, selectedEpisode }) {
       </div>
     </section>
   );
-}
+});
+
+export default Episodies;

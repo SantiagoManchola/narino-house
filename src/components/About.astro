@@ -27,13 +27,16 @@ const aboutItems = [
       Acerca de House of Nariño
     </h2>
     <div class="flex flex-wrap justify-center sm:justify-start gap-3">
-      <button
+      <a
+        href="https://drive.google.com/drive/folders/12Pbn9GxZ1JD50Qw5_EG7JaFgrg4IWWKa?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
         class="px-4 py-2 text-white rounded border border-white bg-[#242424] cursor-pointer text-sm sm:text-base"
-        type="button"
       >
         Contrapartes
-      </button>
+      </a>
       <button
+        id="openModalBtn"
         class="px-4 py-2 text-white rounded border border-white bg-[#242424] cursor-pointer text-sm sm:text-base"
         type="button"
       >
@@ -54,11 +57,67 @@ const aboutItems = [
   </div>
 
   <div class="mt-12 flex justify-center py-16">
-    <img
-      src="/images/icon-cp-white.svg"
-      alt="Cuestión Pública"
-      class="h-12 sm:h-16"
-      loading="lazy"
-    />
+    <a
+      href="https://cuestionpublica.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="/images/icon-cp-white.svg"
+        alt="Cuestión Pública"
+        class="h-12 sm:h-16"
+        loading="lazy"
+      />
+    </a>
   </div>
 </section>
+
+<div
+  id="modal"
+  class="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-50 hidden"
+>
+  <div
+    id="modalContent"
+    class="bg-[#242424] max-w-xl w-[90vw] rounded-lg p-6 text-white shadow-lg border border-white/30 relative
+           transform transition-transform duration-300 scale-100"
+  >
+    <h3 class="text-lg font-semibold mb-4 text-center">Metodología</h3>
+    <p class="text-sm mb-6 text-center">
+      Para esta investigación hicimos 71 solicitudes de información a entidades
+      públicas, 40 entrevistas a fuentes clave como congresistas, exministros,
+      integrantes de campañas y funcionarios del gobierno Petro. Además,
+      analizamos bases de datos y cientos de documentos de la UNGRD.
+    </p>
+    <button
+      id="closeModalBtn"
+      class="block mx-auto px-6 py-2 rounded bg-white text-black font-semibold hover:bg-gray-200 transition cursor-pointer"
+      type="button"
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<script type="module">
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.getElementById("closeModalBtn");
+  const modal = document.getElementById("modal");
+
+  openBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+  });
+
+  const closeModal = () => {
+    modal.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+</script>

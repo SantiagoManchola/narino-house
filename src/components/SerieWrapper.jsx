@@ -6,6 +6,7 @@ export default function SerieWrapper() {
   const [selectedEpisode, setSelectedEpisode] = useState("T");
   const [isPlaying, setIsPlaying] = useState(false);
   const heroRef = useRef(null);
+  const episodesRef = useRef(null);
 
   const handleEpisodeSelect = (episodeId) => {
     setSelectedEpisode(episodeId);
@@ -23,6 +24,9 @@ export default function SerieWrapper() {
           episodeId={selectedEpisode}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
+          onPlayClick={() => {
+            episodesRef.current?.scrollIntoView({ behavior: "smooth" });
+          }}
         />
       </div>
 
@@ -65,6 +69,7 @@ export default function SerieWrapper() {
       </section>
 
       <Episodies
+        ref={episodesRef}
         selectedEpisode={selectedEpisode}
         onEpisodeSelect={handleEpisodeSelect}
       />
