@@ -12,3 +12,7 @@
 .font-sweet {
   font-family: 'Sweet Sans Pro', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}

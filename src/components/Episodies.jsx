@@ -42,15 +42,13 @@ const Episodies = forwardRef(function Episodies(
     <section
       ref={ref}
       className="px-6 sm:px-4 md:px-12 lg:px-20 py-6 text-white"
+      id="episodios"
     >
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <h2 className="text-xl sm:text-2xl">Episodios</h2>
 
         <div className="relative inline-block w-fit">
-          <select
-            disabled
-            className="appearance-none bg-[#242424] border border-white text-white font-semibold px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base leading-tight pr-10"
-          >
+          <select className="appearance-none bg-[#242424] border border-white text-white font-semibold px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base leading-tight pr-10">
             <option className="text-black">Temporada 1</option>
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
@@ -86,7 +84,7 @@ const Episodies = forwardRef(function Episodies(
             }`}
             onClick={() => onEpisodeSelect(ep.id)}
           >
-            <div className="w-6 text-base sm:text-lg text-white/60 self-center flex justify-center">
+            <div className="w-6 text-base hidden sm:flex text-white/60 self-center flex justify-center">
               {ep.id}
             </div>
 

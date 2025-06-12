@@ -4,66 +4,57 @@ const cast = [
     title: "Gustavo Petro",
     thumbnail: "/images/cast/img1.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
+    youtubeId: "OXsu5g-b7a8",
   },
   {
     title: "Olmedo López",
     thumbnail: "/images/cast/img2.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
+    youtubeId: "OXsu5g-b7a9",
   },
   {
     title: "Sneyder Pinilla",
     thumbnail: "/images/cast/img3.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
   {
     title: "Carlos Andrés Trujillo",
     thumbnail: "/images/cast/img4.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
   {
     title: "Julio Elías Chagüi",
     thumbnail: "/images/cast/img5.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
   {
     title: "Julián Bedoya",
     thumbnail: "/images/cast/img6.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
   {
     title: "Andrés Calle Aguas",
     thumbnail: "/images/cast/img7.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
   {
     title: "UNGRD",
     thumbnail: "/images/cast/img8.png",
     description: "Conoce más en: Capítulo 1",
-    url: "#",
   },
 ];
 ---
 
-<section class="px-6 md:px-12 lg:px-20 pt-10 text-white">
+<section class="px-6 md:px-12 lg:px-20 py-10 text-white">
   <h2 class="text-2xl font-semibold mb-6">Cast</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     {
       cast.map((item) => (
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
           class="bg-[#2F2F2F] rounded-md overflow-hidden transition-transform hover:scale-[1.02]"
+          data-youtubeid={item.youtubeId}
         >
-          <!-- Imagen en proporción 1:1 -->
           <div class="relative aspect-[1/1]">
             <img
               src={item.thumbnail}
@@ -71,31 +62,150 @@ const cast = [
               class="absolute inset-0 w-full h-full object-cover"
             />
             <div class="absolute inset-0 flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-[46px] h-[46px]"
-                viewBox="0 0 46 46"
+              <button
+                class="play-btn absolute inset-0 flex items-center justify-center cursor-pointer"
+                aria-label="Reproducir audio"
               >
-                <circle
-                  cx="23"
-                  cy="23"
-                  r="22"
-                  fill="#181818"
-                  fill-opacity="0.5"
-                  stroke="white"
-                  stroke-width="1"
-                />
-                <path d="M16 13v20l16-10z" fill="white" />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-[46px] h-[46px]"
+                  viewBox="0 0 46 46"
+                >
+                  <circle
+                    cx="23"
+                    cy="23"
+                    r="22"
+                    fill="#181818"
+                    fill-opacity="0.5"
+                    stroke="white"
+                    stroke-width="1"
+                  />
+                  <path d="M16 13v20l16-10z" fill="white" />
+                </svg>
+              </button>
             </div>
           </div>
 
           <div class="p-4 flex flex-col gap-3 text-white text-sm">
             <span>{item.title}</span>
-            <p class="text-[#D2D2D2] max-w-[80%]">{item.description}</p>
+            <a
+              href="#episodios"
+              class="text-[#D2D2D2] max-w-[80%] hover:text-white hover:underline transition-colors"
+            >
+              {item.description}
+            </a>
           </div>
-        </a>
+        </div>
       ))
     }
   </div>
+
+  <div id="youtube-player-container" style="display:none;">
+    <div id="youtube-player"></div>
+  </div>
+
+  <script>
+    let player = null;
+    let currentPlayingId = null;
+
+    function loadYouTubeAPI() {
+      return new Promise((resolve) => {
+        if (window.YT && window.YT.Player) {
+          resolve(window.YT);
+        } else {
+          const tag = document.createElement("script");
+          tag.src = "https://www.youtube.com/iframe_api";
+          window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+          document.body.appendChild(tag);
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === 0) {
+        // ended
+        stopPlaying();
+      }
+    }
+
+    function stopPlaying() {
+      if (player) {
+        player.stopVideo();
+      }
+      currentPlayingId = null;
+      updateButtons();
+    }
+
+    function updateButtons() {
+      document.querySelectorAll(".play-btn").forEach((btn) => {
+        const container = btn.closest("div[data-youtubeid]");
+        const id = container.getAttribute("data-youtubeid");
+        const svg = btn.querySelector("svg");
+        if (id === currentPlayingId) {
+          svg.outerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12h.01M7 8v8m5-12v12m5-8v4" />
+            </svg>`;
+          btn.setAttribute("aria-label", "Pausar audio");
+        } else {
+          svg.outerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 46 46">
+              <circle cx="23" cy="23" r="22" fill="#181818" fill-opacity="0.5" stroke="white" stroke-width="1" />
+              <path d="M16 13v20l16-10z" fill="white" />
+            </svg>`;
+          btn.setAttribute("aria-label", "Reproducir audio");
+        }
+      });
+    }
+
+    async function playAudio(youtubeId) {
+      const YT = await loadYouTubeAPI();
+
+      if (player) {
+        player.loadVideoById(youtubeId);
+      } else {
+        player = new YT.Player("youtube-player", {
+          height: "0",
+          width: "0",
+          videoId: youtubeId,
+          playerVars: {
+            autoplay: 1,
+            controls: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            mute: 0,
+            loop: 0,
+            rel: 0,
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+      currentPlayingId = youtubeId;
+      updateButtons();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".play-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const container = btn.closest("div[data-youtubeid]");
+          const id = container.getAttribute("data-youtubeid");
+
+          if (currentPlayingId === id) {
+            player.pauseVideo();
+            currentPlayingId = null;
+          } else {
+            playAudio(id);
+          }
+          updateButtons();
+        });
+      });
+    });
+  </script>
 </section>
