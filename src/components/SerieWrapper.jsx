@@ -46,10 +46,15 @@ export default function SerieWrapper() {
             </div>
 
             <p>
-              En la Casa de Nariño, muchos le han vendido el alma al diablo. El
-              pecado original: las campañas electorales. La fórmula: alianzas y
-              plata. El triunfo final: la impunidad y ríos de dinero desviados,
-              esta vez, a través de la Unidad del Riesgo.
+              En la Casa de Nariño, algunos no hicieron pactos con el pueblo…
+              sino con el diablo. Campañas manchadas de dinero poco limpio,
+              pactos en la sombra y una entidad clave: la UNGRD. Esta es la
+              historia de cómo el poder se compró con contratos, cómo Olmedo
+              López escaló con fuego en los talones y cómo partidos de todos los
+              colores terminaron untados. Plata caliente. Pactos silenciosos. Y
+              un infierno llamado corrupción. Dale play a esta investigación que
+              destapa los secretos del escándalo que sacude al gobierno de
+              Gustavo Petro.
             </p>
           </div>
 
@@ -57,8 +62,8 @@ export default function SerieWrapper() {
             <p>
               <span className="text-[#777777]">Elenco:</span> Gustavo Petro,
               Olmedo López, Sneyder Pinilla, Carlos Trujillo, Andrés Calle,
-              Elías Chagüi, Emilio Tapia, Laura Sarabia, Mauricio Lizcano,
-              Julián Bedoya, Ciro Ramírez.
+              Julio Elías Chagüi, Julián Bedoya, Emilio Tapia, Ciro Ramírez, la
+              Ungrd.
             </p>
             <p>
               <span className="text-[#777777]">Géneros:</span> Investigación
