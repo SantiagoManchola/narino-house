@@ -6,7 +6,7 @@ const aboutItems = [
   { label: "Idea y propuesta creativa:", value: "Claudia Báez" },
   { label: "Líder del equipo de investigación:", value: "Miriam Forero Ariza" },
   {
-    label: "Investigadores y guion:",
+    label: "Investigadores y guión:",
     value: "Andrea Rincón, Edier Buitrago, Miriam Forero y Diana Salinas",
   },
   { label: "Apoyo en investigación:", value: "Paola Tellez" },
@@ -19,8 +19,9 @@ const aboutItems = [
   { label: "Fact Check:", value: "Sergio Retavisca" },
   { label: "Edición legal:", value: "Laura Martínez" },
   { label: "Diseño:", value: "Nelson Casallas" },
-  { label: "Producción de podcast:", value: "Daniel Murcia" },
+  { label: "Producción de pódcast:", value: "Daniel Murcia" },
   { label: "Edición de sonido:", value: "Juan David Sarmiento" },
+  { label: "Realización audiovisual:", value: "El Parche Producciones" },
   {
     label: "Estrategia de audiencias:",
     value: "Natalia Gómez, Laura Tovar, Heidy González",
@@ -31,7 +32,7 @@ const aboutItems = [
     value:
       "National Endowment for Democracy (NED), International Fund for Public Interest Media y Luminate Group",
   },
-  { label: "Inspiración en la serie House of Cards", value: "" },
+  { label: "Inspiración en la serie House of Cards.", value: "" },
 ];
 ---
 
@@ -89,7 +90,7 @@ const aboutItems = [
       rel="noopener noreferrer"
     >
       <img
-        src="/images/icon-cp-white.svg"
+        src="/house-of-narino/images/icon-cp-white.svg"
         alt="Cuestión Pública"
         class="h-12 sm:h-16"
         loading="lazy"
@@ -129,8 +130,8 @@ const aboutItems = [
         Además, analizamos bases de datos y cientos de documentos de la UNGRD.
       </p>
       <button
-        id="closeModalBtn"
-        class="block mx-auto px-6 py-2 rounded bg-white text-black font-semibold hover:bg-gray-200 transition cursor-pointer"
+        id="closeModalBtn2"
+        class="block mx-auto px-6 py-2 rounded bg-white text-black font-semibold hover:bg-gray-200 transition cursor-pointer z-1000"
         type="button"
       >
         Cerrar
@@ -139,25 +140,30 @@ const aboutItems = [
   </div>
 
   <script type="module">
-    const openBtn = document.getElementById("openModalBtn");
-    const closeBtn = document.getElementById("closeModalBtn");
-    const modal = document.getElementById("modal");
+    window.addEventListener("DOMContentLoaded", () => {
+      const openBtn = document.getElementById("openModalBtn");
+      const modal = document.getElementById("modal");
+      const closeBtn = document.getElementById("closeModalBtn2");
 
-    openBtn.addEventListener("click", () => {
-      modal.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    });
+      if (openBtn && closeBtn && modal) {
+        openBtn.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+          document.body.classList.add("overflow-hidden");
+        });
 
-    const closeModal = () => {
-      modal.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    };
+        const closeModal = () => {
+          console.log("Closing modal");
+          modal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        };
 
-    closeBtn.addEventListener("click", closeModal);
+        closeBtn.addEventListener("click", closeModal);
 
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
       }
     });
   </script>

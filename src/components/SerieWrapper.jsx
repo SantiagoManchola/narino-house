@@ -25,7 +25,8 @@ export default function SerieWrapper() {
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           onPlayClick={() => {
-            episodesRef.current?.scrollIntoView({ behavior: "smooth" });
+            setSelectedEpisode("T");
+            setIsPlaying(true);
           }}
         />
       </div>

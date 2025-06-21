@@ -6,10 +6,10 @@ import narinoTextUrl from "../assets/images/narino.svg?url";
 
 export default function HeroPlayer({ episodeId, isPlaying, onPlayClick }) {
   const episodes = {
-    T: "J76Tqc3uGL0",
-    1: "FW_3rVoBzPA",
-    2: "75xlB8aw68o",
-    3: "Re61e2rdBrQ",
+    T: "56UW0JLrhVQ",
+    1: "4WboNDsfOP4",
+    2: "aaTblqXzbSk",
+    3: "e7zdEjhcEPw",
   };
 
   const videoId = episodes[episodeId] || episodes[1];
@@ -26,7 +26,7 @@ export default function HeroPlayer({ episodeId, isPlaying, onPlayClick }) {
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
-            <source src="/videos/banner-video.mp4" type="video/mp4" />
+            <source src="videos/banner-video.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
           </video>
 
@@ -137,7 +137,7 @@ export default function HeroPlayer({ episodeId, isPlaying, onPlayClick }) {
                 className="relative group w-10 h-10 sm:w-[42px] sm:h-[42px] flex items-center justify-center border border-white rounded-full hover:bg-white/20 transition cursor-pointer"
               >
                 <img
-                  src="/images/spotify.svg"
+                  src="images/spotify.svg"
                   alt="Spotify"
                   className="w-5 sm:w-auto"
                 />

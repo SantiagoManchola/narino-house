@@ -6,32 +6,32 @@ const episodes = [
     title: "Tráiler",
     description:
       "“Les prometí poder. Les di votos. Y solo me pidieron una cosa: que nadie descubriera la verdad…Pero Cuestión Pública investigó y encontró mis movidas en House of Nariño. Donde toda emergencia tiene un precio, un contrato y muchos socios. No importa si se trata de reformas, campañas o pactos”, El Diablo.",
-    duration: "48 min",
-    thumbnail: "/images/episodies/logo-hn.svg",
+    duration: "7 min",
+    thumbnail: "/house-of-narino/images/episodies/logo-hn.svg",
   },
   {
     id: 1,
     title: "Capítulo 1: Venderle el alma al diablo",
     description:
       "Días antes del triunfo de Gustavo Petro, una carta intentó evitar la corrupción de su gobierno. Pero nadie escuchó. Ya era tarde. Olmedo López ya se había ganado el corazón del nuevo presidente. Y hacía rato le había vendido el alma al diablo en alianzas políticas con Carlos Trujillo y un extraordinario préstamo de su propia empresa, que le tejió el camino para llegar al poder. Cuando lo logró, desató una tormenta de corrupción que parecía escrita desde el principio: una tragedia anunciada.",
-    duration: "48 min",
-    thumbnail: "/images/episodies/logo-hn.svg",
+    duration: "39 min",
+    thumbnail: "/house-of-narino/images/episodies/logo-hn.svg",
   },
   {
     id: 2,
     title: "Capítulo 2: Anatomía de un desfalco",
     description:
-      "Cuando el reloj legislativo apretaba y la reforma estrella del Gobierno del cambio peligraba, en el Congreso comenzó el verdadero juego. Cada voto tenía un precio y Julio Elías Chagui, Carlos Trujillo y Andrés Calle, los aliados del presidente, sabían mover las fichas. La UNGRD se convirtió en el banco secreto del poder. Este episodio revela cómo se cocinó la gobernabilidad con dineros para las emergencias. No era solo política. También era plata. ¿Te suena Emilio Tapia? ¡No lo vas a creer!",
-    duration: "48 min",
-    thumbnail: "/images/episodies/logo-hn.svg",
+      "Cuando el reloj legislativo apretaba y la reforma estrella del Gobierno del cambio peligraba, en el Congreso comenzó el verdadero juego. Cada voto tenía un precio y Julio Elías Chagüi, Carlos Trujillo y Andrés Calle, los aliados del presidente, sabían mover las fichas. La UNGRD se convirtió en el banco secreto del poder. Este episodio revela cómo se cocinó la gobernabilidad con dineros para las emergencias. No era solo política. También era plata. ¿Te suena Emilio Tapia? ¡No lo vas a creer!",
+    duration: "41 min",
+    thumbnail: "/house-of-narino/images/episodies/logo-hn.svg",
   },
   {
     id: 3,
     title: "Capítulo 3: El kit del saqueo",
     description:
       "En tono irónico, Cuestión Pública empacó lo esencial: un juego de naipes, una linterna, una soga y una libreta. Porque todo lo que se necesita para desviar contratos en la UNGRD… cabe en un kit para emergencias. Así operaron Olmedo López y Sneyder Pinilla durante siete meses de saqueo billonario. Mientras el país hablaba de carrotanques, ellos repartían con cartas marcadas. Corrupción a plena luz. Y lo peor: apenas estamos viendo la punta del iceberg. Prepárate para abrir el kit.",
-    duration: "48 min",
-    thumbnail: "/images/episodies/logo-hn.svg",
+    duration: "36 min",
+    thumbnail: "/house-of-narino/images/episodies/logo-hn.svg",
   },
 ];
 
