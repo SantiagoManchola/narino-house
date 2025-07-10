@@ -38,7 +38,7 @@ import "../styles/global.css";
     />
     <meta
       property="og:image"
-      content="https://cuestionpublica.com/house-of-narino/imagen-og.jpg"
+      content="https://cuestionpublica.com/house-of-narino/imagen-og-2.jpg"
     />
     <meta
       property="og:url"
@@ -53,8 +53,20 @@ import "../styles/global.css";
     />
     <meta
       name="twitter:image"
-      content="https://cuestionpublica.com/house-of-narino/imagen-og.jpg"
+      content="https://cuestionpublica.com/house-of-narino/imagen-og-2.jpg"
     />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVYP852YNH"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GVYP852YNH");
+    </script>
   </head>
 
   <body class="bg-[#060606]">
@@ -78,9 +90,7 @@ import "../styles/global.css";
     <header class="fixed w-full flex justify-between z-20 cursor-pointer p-6">
       <a
         href="/"
-        class="inline-block
-    bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-2 shadow-md transition
-    md:bg-transparent md:hover:bg-transparent md:backdrop-blur-0 md:border-none md:shadow-none md:p-0 md:rounded-none"
+        class="inline-block bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-2 shadow-md transition md:bg-transparent md:hover:bg-transparent md:backdrop-blur-0 md:border-none md:shadow-none md:p-0 md:rounded-none"
       >
         <img
           src="/house-of-narino/images/logo-cp.png"
@@ -90,7 +100,7 @@ import "../styles/global.css";
       </a>
 
       <a
-        class="md:hidden inline-block bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-2 shadow-md transition"
+        class="inline-block bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-2 shadow-md transition"
         href="/house-of-narino/"
       >
         <img
